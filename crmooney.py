@@ -16,7 +16,7 @@ __status__ = "Development"
 
 
 def apply_mooney_transform(
-    img, imagepath, imgname, transformations, url=None, photo_id=None
+    img, imagepath, imgname, transformations, mooneypath, url=None, photo_id=None
 ):
     """Given an image, calls the transformations needed to create the Mooney of
     it.
@@ -272,6 +272,7 @@ def crmooney_frompath(
                 os.path.dirname(filename),
                 os.path.basename(imgname),
                 transformations,
+		mooneypath = mooneypath
             )
         )
 

@@ -74,6 +74,7 @@ def resize_img(img, size=(400, 400), resample=Image.BILINEAR):
     return np.asarray(Image.fromarray(np.uint8(img)).resize(size, resample))
 
 
+# buggy
 def rgb2gray(img):
     """Given an RGB image return the gray scale image.
 
@@ -84,6 +85,13 @@ def rgb2gray(img):
     print("Convert RGB image to gray scale.")
     return np.uint8(np.dot(img[..., :3], [0.299, 0.587, 0.114]))
 
+
+def rgb2gray(rgb):
+
+    r, g, b = rgb[:,:,0], rgb[:,:,1], rgb[:,:,2]
+    gray = 0.2989 * r + 0.5870 * g + 0.1140 * b
+
+    return gray
 
 def gauss_filter(img, sigma=4, mode="nearest"):
     print(f"Smooth image using a Gaussian kernel sigma {sigma}")
